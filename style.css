@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  /* Grundläggande styling för vädercontainern */
+  .container {
+    background-color: #ffffff;
+    border: 2px solid #e1ecf6;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 300px;
+    width: 100%;
+  }
+  
+  /* Titelstil */
+  h1 {
+    font-size: 1.5rem;
+    color: #333333;
+    margin-bottom: 10px;
+  }
+  
+  /* Styling för väderinformationen */
+  #weather-info p {
+    font-size: 1rem;
+    color: #555555;
+    margin: 8px 0;
+  }
