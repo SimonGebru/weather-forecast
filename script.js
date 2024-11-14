@@ -28,6 +28,20 @@ const weatherConditions = {
     8000: "Thunderstorm"
 };
 
+function getWeatherMessage(condition) {
+    if (condition.includes("Clear") || condition.includes("Sunny")) {
+        return "Det ser ut att bli en solig dag! Glöm inte solglasögonen!";
+    } else if (condition.includes("Rain") || condition.includes("Drizzle")) {
+        return "Det verkar regna. Ta med ett paraply!";
+    } else if (condition.includes("Snow")) {
+        return "Det snöar! Klä dig varmt om du ska ut.";
+    } else if (condition.includes("Thunderstorm")) {
+        return "Det är åska i luften. Var försiktig om du går ut!";
+    } else {
+        return "Ha en bra dag, oavsett väder!";
+    }
+}
+
 async function fetchWeatherData(city) {
     const apiKey = "y5zT5sFh305qdWPf7jdPJsbfdLdEaAVe";
     const options = { method: 'GET', headers: { accept: 'application/json' } };
@@ -47,10 +61,13 @@ async function fetchWeatherData(city) {
 
         const condition = weatherConditions[weatherCode] || "Unknown weather";
 
+        const weatherMessage = getWeatherMessage(condition);
+
         document.getElementById("weatherResult").innerHTML = `
             <strong>Stad:</strong> ${locationName}<br>
             <strong>Temperatur:</strong> ${temperature} °C<br>
-            <strong>Väderförhållanden:</strong> ${condition}
+            <strong>Väderförhållanden:</strong> ${condition} <br>
+            <strong>Meddelande:</strong> ${weatherMessage}
         `;
     } catch (err) {
         console.error(err);
